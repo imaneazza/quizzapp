@@ -8,7 +8,7 @@ export default function QuestionData({onSelect, index, handleSkipAnswer}) {
         currentAnswer: null,
         isCorrect: null
     })
-    let timer = 30000;
+    let timer = 3000;
     if (answerSt.currentAnswer) {
         timer = 1000;
     }
@@ -43,7 +43,7 @@ export default function QuestionData({onSelect, index, handleSkipAnswer}) {
     return <div id="question">
         <QuestionTimer
             key={timer}
-            onfinishTimer={answerSt.currentAnswer == '' ? handleSkipAnswer : null}
+            onfinishTimer={answerSt.currentAnswer == null ? handleSkipAnswer : null}
             timer={timer} mode={answerState}/>
         <h2>{question[index].text}</h2>
         <Answes selectedAnswer={answerSt.currentAnswer}
